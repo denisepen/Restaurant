@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root :to => "application#home"
-  resources :users
+
+   resources :users, only: [:new, :show] do
+  #   # nested resource for orders
+    resources :orders, only: [:show, :index]
+   end
+  resources :users #, except: :show
   resources :meals
   resources :orders
   resources :ingredients

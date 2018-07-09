@@ -13,10 +13,15 @@ class OrdersController < ApplicationController
   end
 
   def index
+
     @user = User.find_by(id: session[:user_id])
+    if @user.admin
+      @orders = Order.all
+    else
     @orders = User.find_by(id: session[:user_id]).orders
 
     session[:total] = Order.joins(:user).joins(:meal).sum("price")
+  end
     return @order_total = Order.joins(:user).joins(:meal).sum("price")
   end
 
@@ -35,7 +40,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-    flash[:thanks] = "Thank you. Your order total is $#{session[:total]}. Have a great day!"
+    # flash[:thanks] = "Thank you. Your order total is $#{session[:total]}. Have a great day!"
     render :checkout
   end
 

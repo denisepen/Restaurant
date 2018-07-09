@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def index
     @users = User.all
   end
@@ -37,7 +37,8 @@ end
   end
 
   def show
-    @user = User.find(params[:id])
+    # puts params[:id]
+     @user = User.find(params[:id])
   end
 
   def order_page

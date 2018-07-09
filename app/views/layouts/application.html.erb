@@ -41,8 +41,8 @@
                 <% if current_user %>
                 <% if current_user.orders %>
                 <%# link_to "Order:", orders_path %> <br>
-          <%= link_to "Order Total: #{number_to_currency(session[:total])}", orders_path %> | |
-          <%= link_to "Check Out","#" %>
+          <%= link_to "Order Total: #{number_to_currency(session[:total])}", orders_path %> 
+          <%# link_to "Check Out","#" %>
               <% end %>
               <% end %>
 

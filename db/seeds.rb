@@ -18,7 +18,7 @@ User.create!(first_name:  "Denise",
   first_name  = Faker::Name.first_name
   last_name  = Faker::Name.last_name
   email = "#{first_name}_#{n+1}@gmail.org"
-  password = "password"
+  password = "#{first_name}password"
   User.create!(first_name:  first_name,
                 last_name: last_name,
                email: email,
