@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
 
   def checkout
     flash[:thanks] = "Thank you. Your order total is $#{session[:total]}. Have a great day!"
-    redirect_to orders_path 
+    render :checkout
   end
 
 
