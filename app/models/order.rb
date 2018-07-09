@@ -4,8 +4,8 @@ class Order < ApplicationRecord
 
   def add_to_order
     # raise session.inspect
-    @meal = Meal.find_by(id: self.meal_id)
-    user = User.find_by(id: current_user.id) #or current_user
+    @meal = Meal.find_by(id: self.meal.id)
+    user = User.find_by(id: self.user.id) #or current_user
 
 
     self.user.meals << @meal

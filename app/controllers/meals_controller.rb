@@ -23,6 +23,7 @@ class MealsController < ApplicationController
 
   def show
     @meal = Meal.find(params[:id])
+    session[:meal_id] = @meal.id
   end
 
   def edit

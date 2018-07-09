@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
 
   def add_meal
-    # session[:meal_id] = nil
+
+  # raise params.inspect
     @order = Order.create(meal_id: session[:meal_id], user_id: session[:user_id], date: Time.now)
-    binding.pry
+
+    # binding.pry
     @order.id = session[:order_id]
     # raise session.inspect
     flash[:notice] = "Meal added to Order"
@@ -14,11 +16,7 @@ class OrdersController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @orders = User.find_by(id: session[:user_id]).orders
 
-
-    # @order_total
     session[:total] = Order.joins(:user).joins(:meal).sum("price")
-    # @order_total =
-    # binding.pry
     return @order_total = Order.joins(:user).joins(:meal).sum("price")
   end
 
@@ -34,9 +32,11 @@ class OrdersController < ApplicationController
     @user = Order.find_by(id: session[:user_id])
     @order_total = Order.joins(:user).joins(:meal).sum("price")
     @order_total = session[:total]
+  end
 
-    binding.pry
-
+  def checkout
+    flash[:thanks] = "Thank you. Your order total is $#{session[:total]}. Have a great day!"
+    redirect_to orders_path 
   end
 
 
