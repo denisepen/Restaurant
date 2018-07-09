@@ -1,0 +1,18 @@
+<h1>Customer List</h1>
+
+<% @users.each do |c| %>
+    <% if !c.admin %>
+  Name: <%= c.first_name  %> <%= c.last_name %> <br>
+
+  Email: <%= c.email %> <br>
+  <%# if c.orders %>
+  <%# binding.pry %>
+  Orders:
+  <%# c.orders.each do |order| %>
+    <%# order.name %> <br>
+    <%# order.comment %>
+    <%# end %>
+    <%# end %>
+    <hr>
+    <% end %>
+  <% end %>
