@@ -36,8 +36,9 @@ class MealsController < ApplicationController
   end
 
   def update
+     # binding.pry
     @meal = Meal.find(params[:id])
-    @meal = Meal.update(meal_params)
+    @meal.update(meal_params)
     redirect_to meal_path(@meal)
   end
 

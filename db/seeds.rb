@@ -25,3 +25,8 @@ User.create!(first_name:  "Denise",
                password:              password,
                password_confirmation: password)
 end
+
+# 20.times do |n|
+#   desc = Faker::Food.description
+#   Meal.create!(description: desc)
+# end
