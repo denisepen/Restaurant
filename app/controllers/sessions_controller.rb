@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
        if  @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
 
-      redirect_to :root
+      redirect_to root_path
       # user_path(@user)
     else
     flash[:error] = "Email or password is invalid"
