@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
 
   def total
     # binding
-    @user = Order.find_by(id: session[:user_id])
+    # @user = Order.find_by(id: session[:user_id])
     @order_total = Order.joins(:user).joins(:meal).sum("price")
     @order_total = session[:total]
   end
